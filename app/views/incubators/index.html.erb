@@ -1,1 +1,11 @@
 <h1>Hola Hospinet, el mundo de las incubadoras rápidas.</h1>
+<table class="table">
+  <tr>
+    <th>User_id</th>
+    <th>Serial_code</th>
+  </tr>
+</table>
+<% @incubators.each do |incubator| %>
+  <%= incubator.user_id %>
+  <%= incubator.serial_code %>
+<% end  %>
