@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  incubator: one
+  position: 1
+  date: 2019-04-08 10:10:13
+  time_initial: 2019-04-08 10:10:13
+  time_end: 2019-04-08 10:10:13
+  type: 
+  upshot: false
+
+two:
+  incubator: two
+  position: 1
+  date: 2019-04-08 10:10:13
+  time_initial: 2019-04-08 10:10:13
+  time_end: 2019-04-08 10:10:13
+  type: 
+  upshot: false

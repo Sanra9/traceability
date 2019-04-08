@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_145201) do
+ActiveRecord::Schema.define(version: 2019_04_08_151013) do
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "incubator_id"
+    t.integer "position"
+    t.datetime "date"
+    t.time "time_initial"
+    t.time "time_end"
+    t.string "type"
+    t.boolean "upshot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["incubator_id"], name: "index_entries_on_incubator_id"
+  end
+
+  create_table "incubators", force: :cascade do |t|
+    t.string "serial_code"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_incubators_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
