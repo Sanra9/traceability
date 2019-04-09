@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Add a New Incubator</h1>
+      <%= form_for @incubator to |i| %>
+      <div class="form-gruop">
+        <%= i.text_field :serial_code, class: 'form-control input -lg', placeholder: 'Input serial code incubator' %>
+      </div>
+      <div>
+        <%= i.sumit 'Add Incubator', class: 'btn btn-primary btn-lg btn-block' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
