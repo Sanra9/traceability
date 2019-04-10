@@ -1,11 +1,20 @@
-<h1>Hola Hospinet, el mundo de las incubadoras rápidas.</h1>
-<table class="table">
-  <tr>
-    <th>User_id</th>
-    <th>Serial_code</th>
-  </tr>
-</table>
-<% @incubators.each do |incubator| %>
-  <%= incubator.user_id %>
-  <%= incubator.serial_code %>
-<% end  %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Hola Hospinet, el mundo de las incubadoras rápidas.</h1>
+      <div class="text-right">
+        <%= link_to 'Add Incubator', new_incubator_path, class: 'btn btn-primary' %>
+      </div>
+      <table class="table">
+        <tr>
+          <th>User_id</th>
+          <th>Serial_code</th>
+        </tr>
+      </table>
+      <% @incubators.each do |incubator| %>
+        <%= incubator.user_id %>
+        <%= incubator.serial_code %>
+      <% end  %>
+    </div>
+  </div>
+</div>
