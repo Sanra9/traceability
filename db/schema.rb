@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_151013) do
+ActiveRecord::Schema.define(version: 2019_04_11_202403) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "incubator_id"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_151013) do
     t.datetime "date"
     t.time "time_initial"
     t.time "time_end"
-    t.string "type"
+    t.string "biotype"
     t.boolean "upshot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
