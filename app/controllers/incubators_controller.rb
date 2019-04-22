@@ -19,6 +19,10 @@ class IncubatorsController < ApplicationController
       end
     end
 
+    def show
+      @incubator = Incubator.find(params[:id])
+    end
+
     private
 
     def incubator_params
