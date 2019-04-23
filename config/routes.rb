@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get '/incubators/new', to: 'incubators#new', as: 'new_incubator'
   post 'incubators', to: 'incubators#create'
   get 'incubators/:id', to: 'incubators#show'
+
+  resources :entries do
+    collection { post :import }
+  end
 end

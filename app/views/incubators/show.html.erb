@@ -2,10 +2,41 @@
   <div class="row">
     <div class="col-ms-12">
       <h1><%= @incubator.serial_code %></h1>
-      <% @incubator.entries.each do |entry| %>
-        <%= entry.position %>
-        <%= entry.biotype %>
-      <% end %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Incubator_id</th>
+            <th>Position</th>
+            <th>Date</th>
+            <th>Time Initial</th>
+            <th>Time end</th>
+            <th>Total Time</th>
+            <th>Type</th>
+            <th>Upshot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @incubator.entries.each do |entry| %>
+          <tr>
+            <th><%= entry.incubator_id %></th>
+            <th><%= entry.position %></th>
+            <th><%= entry.date %></th>
+            <th><%= entry.time_initial %></th>
+            <th><%= entry.time_end %></th>
+            <th><%= distance_of_time_in_words(entry.time_initial,entry.time_end) if entry.time_initial %></th>
+            <th><%= entry.biotype %></th>
+            <th><%= entry.upshot %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <h4>Import Data</h4>
+        <%= form_tag import_entries_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag 'Import File' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
