@@ -10,7 +10,7 @@
             <th>Date</th>
             <th>Time Initial</th>
             <th>Time end</th>
-            
+            <th>Total Time</th>
             <th>Type</th>
             <th>Upshot</th>
           </tr>
@@ -23,7 +23,7 @@
             <th><%= entry.date %></th>
             <th><%= entry.time_initial %></th>
             <th><%= entry.time_end %></th>
-
+            <th><%= distance_of_time_in_words(entry.time_initial,entry.time_end) if entry.time_initial %></th>
             <th><%= entry.biotype %></th>
             <th><%= entry.upshot %></th>
           </tr>
