@@ -16,4 +16,13 @@
 
 class Entry < ApplicationRecord
   belongs_to :incubator
+
+  require 'csv'
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Entry.create! row.to_hash
+    end
+  end
+  
 end
