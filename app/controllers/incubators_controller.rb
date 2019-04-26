@@ -1,7 +1,7 @@
 class IncubatorsController < ApplicationController
-
+  before_action :authenticate_user!
     def index
-      @incubators = Incubator.all
+      @incubators = current_user.incubators
     end
 
     def new
@@ -11,7 +11,6 @@ class IncubatorsController < ApplicationController
     def create
       @incubator = Incubator.new(incubator_params)
       @incubator.user_id = current_user.id
-      byebug
       if @incubator.save
         redirect_to incubators_path, notice: 'The new incubator has been added with success'
       else
@@ -20,7 +19,7 @@ class IncubatorsController < ApplicationController
     end
 
     def show
-      @incubator = Incubator.find(params[:id])
+      @incubator = current_user.incubators.find(params[:id])
     end
 
     private
