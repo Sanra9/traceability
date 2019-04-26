@@ -18,11 +18,22 @@ class Entry < ApplicationRecord
   belongs_to :incubator
 
   require 'csv'
+  
+    def without(*keys)
+        cpy = self.dup
+        keys.each { |key| cpy.delete(key) }
+        cpy
+    end
 
-  def self.import(file)
+  def self.import(file,current_user)
     CSV.foreach(file.path, headers: true) do |row|
-      Entry.create! row.to_hash
+      data = row.to_hash
+      incubator = current_user.incubators.where(serial_code: data[:serial_code]).take
+      if incubator
+        data = data.without(:serial_code)
+        incubator.entries.create!(data)
+      end
     end
   end
-  
+
 end

@@ -7,14 +7,18 @@
       </div><br>
       <table class="table">
         <tr>
-          <th>User_id</th>
-          <th>Serial_code</th>
+          <th>User_Email</th>
+          <th>Incubator_user_id</th>
+          <th>Incubator_Serial_Code</th>
         </tr>
           <% @incubators.each do |incubator| %>
       <tr>
-        <td><%= incubator.user_id %></td>
-        <td><%= incubator.serial_code %></td>
-        <% end  %>
+        <td><%= current_user.email if signed_in? %></td>
+        <% if signed_in? && incubator.user == current_user %>
+          <td><%= incubator.user_id %></td>
+          <td><%= link_to incubator.serial_code, show_incubator_path(incubator)  %></td>
+          <% end  %>
+        <% end %>
       </tr>
       </table>
     </div>

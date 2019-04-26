@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'incubators', to: 'incubators#index'
   get '/incubators/new', to: 'incubators#new', as: 'new_incubator'
   post 'incubators', to: 'incubators#create'
-  get 'incubators/:id', to: 'incubators#show'
+  get 'incubators/:id', to: 'incubators#show', as: 'show_incubator'
 
   resources :entries do
     collection { post :import }
