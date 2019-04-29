@@ -1,26 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-9">
-      <h1>Hola Hospinet, el mundo de las incubadoras rápidas.</h1>
-      <div class="text-right">
-        <%= link_to 'Add Incubator', new_incubator_path, class: 'btn btn-primary' %>
-      </div><br>
-      <table class="table">
+      <h1>Your<strong><font color="blue"> <i>Incubators:</i></font></strong></h1>
+      <div class="col-sm-6 col-sm-offset-2">
+        <div class="panel panel-default panel-info">
+          <div class="panel-heading"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span><strong> Incubator Serial Code</strong></div>
+        <table class="table">
+            <% @incubators.each do |incubator| %>
         <tr>
-          <th>User_Email</th>
-          <th>Incubator_user_id</th>
-          <th>Incubator_Serial_Code</th>
+          <% if signed_in? && incubator.user == current_user %>
+            <td><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><i> <%= link_to incubator.serial_code, show_incubator_path(incubator)  %></i></td>
+            <% end  %>
+          <% end %>
         </tr>
-          <% @incubators.each do |incubator| %>
-      <tr>
-        <td><%= current_user.email if signed_in? %></td>
-        <% if signed_in? && incubator.user == current_user %>
-          <td><%= incubator.user_id %></td>
-          <td><%= link_to incubator.serial_code, show_incubator_path(incubator)  %></td>
-          <% end  %>
-        <% end %>
-      </tr>
-      </table>
+        </table>
+        </div>
+        <div class="text-right">
+          <%= link_to 'Add Incubator', new_incubator_path, class: 'btn btn-primary' %>
+        </div><br>
+      </div>
     </div>
   </div>
 </div>
