@@ -8,7 +8,7 @@
 #  date         :datetime
 #  time_initial :time
 #  time_end     :time
-#  type         :string
+#  biotype      :string
 #  upshot       :boolean
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

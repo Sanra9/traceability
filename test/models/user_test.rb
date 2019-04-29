@@ -10,6 +10,11 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  email_confirmed        :boolean          default(FALSE)
+#  confirm_token          :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
 #
 
 require 'test_helper'
