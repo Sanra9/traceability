@@ -91,4 +91,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+  echo "sendgrid.env" >> .gitignore
+  source ./sendgrid.env
 end

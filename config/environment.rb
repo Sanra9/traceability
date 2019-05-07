@@ -12,7 +12,4 @@ ActionMailer::Base.smtp_settings = {
   :port => 587,
   :authentication => :plain,
   :enable_starttls_auto => true
-  echo "export SENDGRID_API_KEY='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'" > sendgrid.env
-  echo "sendgrid.env" >> .gitignore
-  source ./sendgrid.env
 }
