@@ -7,15 +7,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'https://calm-river-94599.herokuapp.com'}
 
   ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-      address: 'smtp.sendgrid.net',
-      port: '25',
-      domain: 'heroku.com',
-      user_name: ENV['SENDGRID_USERNAME'],
-      password: ENV['SENDGRID_PASSWORD'],
-      authentication: 'plain',
-      enable_starttls_auto: true
-}
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
