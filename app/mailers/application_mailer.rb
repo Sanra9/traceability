@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'sanra9@outlook.com'
+  default from: 'incubatortraceability@gmail.com'
   layout 'mailer'
 end
