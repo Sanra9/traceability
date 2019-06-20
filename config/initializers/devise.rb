@@ -19,7 +19,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = ENV['GMAIL_USERNAME']
-  config.allow_unconfirmed_access_for = 1.days
+  config.allow_unconfirmed_access_for = 0
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'UserMailer'
