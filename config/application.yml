@@ -1,0 +1,16 @@
+development:
+ SECRET_DEV_KEY: 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
+ GMAIL_USERNAME: incubatortraceability@gmail.com
+ GMAIL_PASSWORD: traceability.2019
+ 
+test:
+ SECRET_KEY_TEST: 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
+ GMAIL_USERNAME: incubatortraceability@gmail.com
+ GMAIL_PASSWORD: traceability.2019
+
+production:
+ SECRET_KEY_BASE: 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
+ GMAIL_USERNAME: incubatortraceability@gmail.com
+ GMAIL_PASSWORD: traceability.2019
+ SENDGRID_USERNAME: IncubatorTraceability
+ SENDGRID_PASSWORD: incubator.2019
