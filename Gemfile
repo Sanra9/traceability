@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+#Solving potential security vulnerabilities from Github
 gem "rubyzip", ">= 1.3.0"
 gem "actionview", ">= 5.2.4.2"
 gem "rake", ">= 12.3.3"
