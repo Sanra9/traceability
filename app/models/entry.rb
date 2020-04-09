@@ -28,10 +28,13 @@ class Entry < ApplicationRecord
   def self.import(file,current_user)
     CSV.foreach(file.path, headers: true) do |row|
       data = row.to_hash
-      incubator = current_user.incubators.where(serial_code: data[:serial_code]).take
+      puts data
+      incubator = current_user.incubators.where(serial_code: data['serial_code']).take
       if incubator
-        data = data.without(:serial_code)
+        data = data.without('serial_code')
         incubator.entries.create!(data)
+      else
+        puts 'no found serial code'
       end
     end
   end
