@@ -31,4 +31,5 @@
 /config/master.key
 
 #Ignore application.yml
+/config/application.yml
 application.yml
