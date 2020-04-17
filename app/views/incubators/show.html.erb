@@ -18,7 +18,12 @@
         </thead>
         <tbody>
           <% @incubator.entries.each do |entry| %>
-          <tr>
+            <% if entry.upshot%>
+            <tr class='success'>
+            <% else %>
+            <tr class='danger'>
+            <% end %>
+          
             <th><%= entry.incubator_id %></th>
             <th><%= entry.position %></th>
             <th><%= entry.date %></th>
