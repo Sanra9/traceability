@@ -2,6 +2,49 @@
   color: blue;
 }
 
+.serialTitle{
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: #4eb6df 2px solid;
+  border-radius: 50px 25px;
+}
+
+.panelHeadingTable{
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.panelBodyTrTable{
+  transition: back-ground ease 2s;
+}
+
+tr:hover{
+  background: #4eb6df;
+}
+
+.Upshot-Block-false{
+  background-color: #df634e;
+  height: 20px;
+  width: 40px;
+  padding: 3px;
+  border: #df634e 1px solid;
+  border-radius: 50px 25px;
+  text-align: center;
+  color: black;
+}
+
+.Upshot-Block-true{
+  background-color: #aacc36;
+  height: 20px;
+  width: 40px;
+  padding: 3px;
+  border: #aacc36 1px solid;
+  border-radius: 50px 25px;
+  text-align: center;
+  color: black;
+}
+
 .prueba {
   color: red;
   background-color: red;

@@ -1,15 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-ms-12">
-      <h1><%= @incubator.serial_code %></h1>
-        <div class="text-right">
-        <%= @incubator.user_id %>
+        <div class="serialTitle">
+          <h1><i> Serial Incubator: </i><%= @incubator.serial_code %></h1>
         </div>
       <table class="table table-default">
         <thead>
-          <tr>
-            <th>Incubator_id</th>
-            <th>Position</th>
+          <tr class= "panelHeadingTable">
+            <th class="text-center">Position</th>
             <th>Date</th>
             <th>Initial Time</th>
             <th>Final Time </th>
@@ -20,19 +18,18 @@
         </thead>
         <tbody>
           <% @incubator.entries.each do |entry| %>
-            <% if entry.upshot%>
-            <tr bgcolor="#aacc36">
-            <% else %>
-            <tr bgcolor="#df634e">
-            <% end %>
-            <th><%= entry.incubator_id %></th>
-            <th><%= entry.position %></th>
+            <tr class="panelBodyTrTable">
+            <th class="text-center"><%= entry.position %></th>
             <th><%= entry.date %></th>
             <th><%= entry.time_initial %></th>
             <th><%= entry.time_end %></th>
             <th><%= distance_of_time_in_words(entry.time_initial,entry.time_end) if entry.time_initial %></th>
             <th><%= entry.biotype %></th>
-            <th><%= entry.upshot %></th>
+            <th>            
+              <div class="<%= entry.upshot ? 'Upshot-Block-true' : 'Upshot-Block-false'=%>">
+              <%= entry.upshot %>
+              </div>
+            </th>
           </tr>
           <% end %>
         </tbody>
