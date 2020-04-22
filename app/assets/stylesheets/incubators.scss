@@ -16,10 +16,10 @@
 }
 
 .panelBodyTrTable{
-  transition: back-ground ease 2s;
+  transition: background-color ease 3s;
 }
 
-tr:hover{
+tr.panelBodyTrTable:hover{
   background: #4eb6df;
 }
 
