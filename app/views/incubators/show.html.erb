@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-ms-12">
       <h1><%= @incubator.serial_code %></h1>
-      <%= @incubator.user_id %>
-      <table class="table table-striped">
+        <div class="text-right">
+        <%= @incubator.user_id %>
+        </div>
+      <table class="table table-default">
         <thead>
           <tr>
             <th>Incubator_id</th>
@@ -19,11 +21,10 @@
         <tbody>
           <% @incubator.entries.each do |entry| %>
             <% if entry.upshot%>
-            <tr class='success'>
+            <tr bgcolor="#aacc36">
             <% else %>
-            <tr class='danger'>
+            <tr bgcolor="#df634e">
             <% end %>
-          
             <th><%= entry.incubator_id %></th>
             <th><%= entry.position %></th>
             <th><%= entry.date %></th>
@@ -39,8 +40,11 @@
       <div class="text-right">
         <h4>Import Data</h4>
         <%= form_tag import_entries_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag 'Import File' %>
+        <span class="btn btn-large btn-warning btn-file">
+        Choose File
+          <%= file_field_tag :attachment  %>
+        </span>
+        <%= submit_tag 'Import File', :class => 'btn btn-success' %>
         <% end %>
       </div>
     </div>

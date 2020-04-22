@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   end
 
   def import
-    Entry.import(params[:file],current_user)
+    Entry.import(params[:attachment],current_user)
     redirect_to root_path, notice: 'Data imported with success'
   end
 

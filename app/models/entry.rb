@@ -25,8 +25,8 @@ class Entry < ApplicationRecord
         cpy
     end
 
-  def self.import(file,current_user)
-    CSV.foreach(file.path, headers: true) do |row|
+  def self.import(attachment,current_user)
+    CSV.foreach(attachment.path, headers: true) do |row|
       data = row.to_hash
       puts data
       incubator = current_user.incubators.where(serial_code: data['serial_code']).take
