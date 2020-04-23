@@ -7,6 +7,7 @@
       <table class="table table-default">
         <thead>
           <tr class= "panelHeadingTable">
+            <th>Icubator_ID</th>
             <th class="text-center">Position</th>
             <th>Date</th>
             <th>Initial Time</th>
@@ -17,8 +18,9 @@
           </tr>
         </thead>
         <tbody>
-          <% @incubator.entries.each do |entry| %>
+          <% @incubator_entries.entries.each do |entry| %>
             <tr class="panelBodyTrTable">
+            <th><%= entry.incubator_id %></th>
             <th class="text-center"><%= entry.position %></th>
             <th><%= entry.date %></th>
             <th><%= entry.time_initial %></th>
@@ -34,6 +36,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @incubator_entries %>
       <div class="text-right">
         <h4>Import Data</h4>
         <%= form_tag import_entries_path, multipart: true do %>
