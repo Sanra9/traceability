@@ -20,7 +20,7 @@ class IncubatorsController < ApplicationController
 
     def show
       @incubator = current_user.incubators.find(params[:id])
-      @incubator_entries = @incubator.entries.order(:created_at).page(params[:page]).per(10)
+      @incubator_entries = @incubator.entries.order(:position).page(params[:page]).per(10)
     end
 
     private
