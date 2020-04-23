@@ -36,7 +36,9 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @incubator_entries %>
+      <div class="text-center">
+        <%= paginate @incubator_entries %>
+      </div>
       <div class="text-right">
         <h4>Import Data</h4>
         <%= form_tag import_entries_path, multipart: true do %>
