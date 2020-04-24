@@ -20,6 +20,17 @@ class IncubatorsController < ApplicationController
 
     def show
       @incubator = current_user.incubators.find(params[:id])
+      @incubator_entries = @incubator.entries.order(:position).page(params[:page]).per(10)  
+       
+      if params[:position].present?
+        @incubator_entries = @incubator_entries.where("position LIKE ?", "%#{params[:position]}%")
+      end
+
+      if params[:serial_code].present?
+        @incubator_entries = @incubator_entries.where("incubator_id = ?", params[:incubator_id])
+      end
+      
+
     end
 
     private

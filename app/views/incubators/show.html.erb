@@ -1,43 +1,75 @@
 <div class="container">
   <div class="row">
-    <div class="col-ms-12">
-      <h1><%= @incubator.serial_code %></h1>
-      <%= @incubator.user_id %>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Incubator_id</th>
-            <th>Position</th>
-            <th>Date</th>
-            <th>Initial Time</th>
-            <th>Final Time </th>
-            <th>Total Time</th>
-            <th>Type</th>
-            <th>Upshot</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @incubator.entries.each do |entry| %>
-          <tr>
-            <th><%= entry.incubator_id %></th>
-            <th><%= entry.position %></th>
-            <th><%= entry.date %></th>
-            <th><%= entry.time_initial %></th>
-            <th><%= entry.time_end %></th>
-            <th><%= distance_of_time_in_words(entry.time_initial,entry.time_end) if entry.time_initial %></th>
-            <th><%= entry.biotype %></th>
-            <th><%= entry.upshot %></th>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="text-right">
-        <h4>Import Data</h4>
-        <%= form_tag import_entries_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag 'Import File' %>
-        <% end %>
-      </div>
+    <div class="col-sm-12">
+        <div class="serialTitle">
+          <h1><i> Serial Incubator: </i><%= @incubator.serial_code %></h1>
+        </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="search-block">
+       <h4>Search Filters:</h4>
+        <%= form_tag show_incubator_path(@incubator), method: :get do %>
+          <div class="form-group">
+            <i>Position</i>
+            <%= text_field_tag :position, params[:position], class: "form-control", placeholder: "Position" %>
+          </div>
+          <div class="form-group">
+          <i>Serial Incubator</i>
+           <%= select_tag :incubator_id, options_from_collection_for_select(Incubator.all, "id", "serial_code", params[:incubator_id]), prompt: "Serial Incubator", class: "form-control" %>
+          </div>
+          <%= submit_tag "Search", name: nil, class: "btn btn-primary btn-md" %>
+        <% end %>
+      </div> 
+    </div> 
+    <div class="col-sm-9">
+     <div class="table-block">
+      <table class="table table-default">
+       <thead>
+        <tr class= "panelHeadingTable">
+         <th class="text-center">Position</th>
+         <th>Date</th>
+         <th>Initial Time</th>
+         <th>Final Time </th>
+         <th>Total Time</th>
+         <th>Type</th>
+         <th>Upshot</th>
+        </tr>
+       </thead>
+       <tbody>
+        <% @incubator_entries.entries.each do |entry| %>
+         <tr class="panelBodyTrTable">
+           <th class="text-center"><%= entry.position %></th>
+           <th><%= entry.date %></th>
+           <th><%= entry.time_initial %></th>
+           <th><%= entry.time_end %></th>
+           <th><%= distance_of_time_in_words(entry.time_initial,entry.time_end) if entry.time_initial %></th>
+           <th><%= entry.biotype %></th>
+           <th>            
+            <div class="<%= entry.upshot ? 'Upshot-Block-true' : 'Upshot-Block-false'=%>">
+             <%= entry.upshot %>
+            </div>
+           </th>
+          </tr>
+        <% end %>
+       </tbody>
+      </table>
+     </div> 
+      <div class="text-center">
+  <%= paginate @incubator_entries %>
+ </div>
+ <div class="text-right">
+  <h4>Import Data</h4>
+  <%= form_tag import_entries_path, multipart: true do %>
+  <span class="btn btn-large btn-warning btn-file">
+    Choose File
+    <%= file_field_tag :attachment  %>
+  </span>
+  <%= submit_tag 'Import File', :class => 'btn btn-success' %>
+  <% end %>
+ </div>
+    </div>  
+  </div> 
+    
 </div>
