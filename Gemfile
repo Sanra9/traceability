@@ -12,7 +12,7 @@ gem "loofah", ">= 2.3.1"
 gem "nokogiri", ">= 1.10.8"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 6.0.3'
 # Use Puma as the app server
 gem 'puma', ">= 3.12.4"
 # Use SCSS for stylesheets
